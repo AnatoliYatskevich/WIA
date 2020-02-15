@@ -1,0 +1,22 @@
+<div class="container">
+                <pre>
+                NOTE: make sure to update the PubNub keys below with your keys,
+                and ensure that the BLOCK settings are configured properly!
+                </pre>
+  <h3>MyApp IoT Messaging Integration</h3>
+  <hr/>
+  <p>Click the button below to send a health metric</p>
+  <select [(ngModel)]="systemHealth">
+    <option value="healthy">healthy</option>
+    <option value="degraded">degraded</option>
+    <option value="disabled">disabled</option>
+  </select>
+  <button class="btn btn-primary btn-info" (click)="publish()">Send event!</button>
+  <br/>
+  <br/>
+  <ul>
+    <li *ngFor="let item of messages.slice()">
+      <div>{{item.message.event.name}} = {{item.message.event.data}}</div>
+    </li>
+  </ul>
+</div>
